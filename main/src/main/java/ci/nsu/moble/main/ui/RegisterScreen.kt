@@ -70,7 +70,6 @@ fun RegisterScreen(
                 loginRegex.matches(login) &&
                 passwordRegex.matches(password) &&
                 Patterns.EMAIL_ADDRESS.matcher(email).matches() &&
-                phoneNumber.length >= 10 &&
                 birthDate.isNotEmpty() &&
                 selectedGroupId != null &&
                 selectedGender.isNotEmpty()
@@ -223,7 +222,8 @@ fun RegisterScreen(
                 label = { Text("Телефон") },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                isError = phoneNumber.isNotEmpty() && phoneNumber.length < 10 && phoneNumber.length > 0
             )
 
             if (state.isLoading) {

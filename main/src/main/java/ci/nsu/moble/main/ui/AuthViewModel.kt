@@ -73,8 +73,7 @@ class AuthViewModel : ViewModel() {
             groupId == null ||
             login.isBlank() ||
             password.isBlank() ||
-            email.isBlank() ||
-            phoneNumber.isBlank()
+            email.isBlank()
         ) {
             _state.value = _state.value.copy(error = "Заполните все обязательные поля")
             return
